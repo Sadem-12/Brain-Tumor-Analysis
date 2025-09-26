@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile</title>
+  <link rel="stylesheet" href="css/doctor-profile.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1>NeuroScan AI</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="doctor-dashboard.html">Dashboard</a></li>
+        <li><a href="upload.html">Upload MRI</a></li>
+        <li><a href="patient-list.html">Patients</a></li>
+        <li><a href="doctor-reports.html">Reports</a></li>
+        <li><a href="contact-patient.html">Contact Patient</a></li>
+        <li><a href="doctor-profile.html" class="active">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <section class="profile-section">
+      <h2>My Profile</h2>
+
+      <div class="profile-container">
+        <!-- Basic Info -->
+        <div class="profile-card">
+          <h3>Basic Information</h3>
+          <p id="doctorId"><strong>Doctor ID:</strong> </p>
+          <p id="name"><strong>Name:</strong> </p>
+          <p id="email"><strong>Email:</strong> </p>
+          <p id="mobile"><strong>Mobile:</strong> </p>
+        </div>
+
+        <!-- Professional Info -->
+        <div class="profile-card">
+          <h3>Professional Information</h3>
+          <p id="specialization"><strong>Specialization:</strong> </p>
+          <p id="license"><strong>License Number:</strong> </p>
+          <p id="experience"><strong>Experience:</strong> </p>
+        </div>
+
+        <!-- Account Settings -->
+        <div class="profile-card">
+          <h3>Account Settings</h3>
+          <p><strong>Password:</strong> ******** <a href="change-password.html" class="edit-link">Change</a></p>
+          <p id="notifications"><strong>Notifications:</strong> </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 NeuroScan AI. All rights reserved.</p>
+  </footer>
+
+  <script src="js/doctor-profile.js"></script>
+</body>
+</html>

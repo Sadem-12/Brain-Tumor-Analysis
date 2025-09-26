@@ -1,0 +1,131 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+/* Header & Navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo h1 {
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+nav a:hover{
+  background: #00bcd4;
+  color: #000000;
+} 
+nav a.active {
+  color: #ffffff;
+}
+
+/* Log In / Sign Up Buttons */
+nav ul li a.btn {
+  background-color: #00bcd4;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a.btn:hover {
+  background-color: #ffffff;
+  color: #00bcd4;
+}
+
+/* Hero & About Us & Contact Square Cards */
+.hero-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.square-card {
+  width: 80vw;
+  max-width: 1000px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("images/mri-bg.jpg") no-repeat center center/cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.square-card .card-title,
+.square-card .card-subtitle,
+.square-card .card-text {
+  color: #ffffff;
+}
+
+.square-card .btn {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-radius: 0;
+  padding: 12px 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.square-card .btn:hover {
+  background-color: #00bcd4 !important;
+  color: #ffffff !important;
+}
+
+/* Contact Card text links */
+.square-card a {
+  color: #00bcd4;
+  text-decoration: none;
+}
+
+.square-card a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}

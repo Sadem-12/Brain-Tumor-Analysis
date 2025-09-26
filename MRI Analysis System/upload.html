@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload MRI</title>
+    <link rel="stylesheet" href="css/upload.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>NeuroScan AI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="doctor-dashboard.html">Dashboard</a></li>
+                <li><a href="upload.html" class="active" aria-current="page">Upload MRI</a></li>
+                <li><a href="patient-list.html">Patients</a></li>
+                <li><a href="doctor-reports.html">Reports</a></li>
+                <li><a href="contact-patient.html">Contact Patient</a></li>
+                <li><a href="doctor-profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <h2>Upload MRI Scan</h2>
+
+            <form id="upload-form">
+                <label for="patient-id">Enter Patient ID:</label>
+                <input type="text" id="patient-id" placeholder="e.g. 100001" required>
+
+                <label for="mri-file">Select MRI File:</label>
+                <input type="file" id="mri-file" accept=".jpg,.jpeg,.png,.dcm" required>
+
+                <button type="submit">Upload</button>
+            </form>
+
+            <div id="message"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NeuroScan AI. All rights reserved.</p>
+    </footer>
+
+    <script src="js/upload.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="css/patient-dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>NeuroScan AI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="patient-dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="patient-reports.html">My Reports</a></li>
+                <li><a href="contact-doctor.html">Contact Doctor</a></li>
+                <li><a href="patient-profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard-content" aria-label="Dashboard Content">
+            <h2>Patient Dashboard</h2>
+
+            <!-- Stats Cards -->
+            <section class="stats">
+                <div class="stat-card">
+                    <h3 id="total-reports">0</h3>
+                    <p>Total MRI Reports</p>
+                </div>
+               
+            </section>
+
+            <!-- Recent MRI Reports -->
+            <section class="recent-reports" aria-label="Recent Reports">
+                <h2>Recent MRI Reports</h2>
+                <ul id="recent-reports-list"></ul>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NeuroScan AI. All rights reserved.</p>
+    </footer>
+
+    <script src="js/patient-dashboard.js"></script>
+</body>
+</html>

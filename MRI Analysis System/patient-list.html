@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patients</title>
+  <link rel="stylesheet" href="css/patient-list.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1>NeuroScan AI</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="doctor-dashboard.html">Dashboard</a></li>
+        <li><a href="upload.html">Upload MRI</a></li>
+        <li><a href="patient-list.html" class="active" aria-current="page">Patients</a></li>
+        <li><a href="doctor-reports.html">Reports</a></li>
+        <li><a href="contact-patient.html">Contact Patient</a></li>
+        <li><a href="doctor-profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <!-- Search -->
+    <section class="patient-search" aria-label="Search Patients">
+      <div class="search-box">
+        <input type="text" id="patient-search" placeholder="Enter Patient ID or Name">
+        <button id="search-button">Search</button>
+      </div>
+    </section>
+
+    <!-- Patient List -->
+    <section class="patient-list" aria-label="Patient List">
+      <h2>Patient List</h2>
+      <ul id="patients"></ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 NeuroScan AI. All rights reserved.</p>
+  </footer>
+
+  <script src="js/patient-list.js"></script>
+</body>
+</html>

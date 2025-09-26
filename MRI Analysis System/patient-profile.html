@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="css/patient-profile.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>NeuroScan AI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="patient-dashboard.html">Dashboard</a></li>
+                <li><a href="patient-reports.html">My Reports</a></li>
+                <li><a href="contact-doctor.html">Contact Doctor</a></li>
+                <li><a href="patient-profile.html" class="active">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <h2>My Profile</h2>
+
+            <div class="profile-container">
+                <!-- Basic Information -->
+                <div class="profile-card">
+                    <h3>Basic Information</h3>
+                    <p id="patientNumber"><strong>Patient Number:</strong> </p>
+                    <p id="name"><strong>Name:</strong> </p>
+                    <p id="email"><strong>Email:</strong> </p>
+                    <p id="mobile"><strong>Mobile:</strong> </p>
+                </div>
+
+                <!-- Medical Information -->
+                <div class="profile-card">
+                    <h3>Medical Information</h3>
+                    <p id="bloodType"><strong>Blood Type:</strong> </p>
+                    <p id="allergies"><strong>Allergies:</strong> </p>
+                    <p id="conditions"><strong>Chronic Conditions:</strong> </p>
+                </div>
+
+                <!-- Account Settings -->
+                <div class="profile-card">
+                    <h3>Account Settings</h3>
+                    <p><strong>Password:</strong> ******** <a href="change-password.html" class="edit-link">Change</a></p>
+                    <p id="notifications"><strong>Notifications:</strong> </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NeuroScan AI. All rights reserved.</p>
+    </footer>
+
+    <script src="js/patient-profile.js"></script>
+</body>
+</html>

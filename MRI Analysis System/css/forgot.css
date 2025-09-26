@@ -1,0 +1,55 @@
+/* Body & Background */
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+/* Header Logo */
+header .logo h1 {
+  text-align: center;
+  color: #fff;
+  margin: 20px 0;
+}
+
+/* Card Styling */
+main .card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  color: white;
+}
+
+main h2, main p {
+  color: #fff;
+}
+
+/* Button Styling */
+.btn-info {
+  background-color: #ffffff;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.btn-info:hover {
+  background-color: #00bcd4;
+}
+
+/* Links Styling */
+a {
+  color: #dcdcdc;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/* Footer Styling */
+footer {
+  margin-top: auto;
+  color: #fff;
+}

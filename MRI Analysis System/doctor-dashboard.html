@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="css/doctor-dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>NeuroScan AI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="doctor-dashboard.html" class="active" aria-current="page">Dashboard</a></li>
+                <li><a href="upload.html">Upload MRI</a></li>
+                <li><a href="patient-list.html">Patients</a></li>
+                <li><a href="doctor-reports.html">Reports</a></li>
+                <li><a href="contact-patient.html">Contact Patient</a></li>
+                <li><a href="doctor-profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard-content" aria-label="Dashboard Content">
+            <h2>Doctor Dashboard</h2>
+
+            <!-- Stats Cards -->
+            <section class="stats">
+                <div class="stat-card">
+                    <h3 id="total-patients">0</h3>
+                    <p>Patients Analyzed</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="total-scans">0</h3>
+                    <p>Total Scans</p>
+                </div>
+            </section>
+
+            <!-- Recent Reports -->
+            <section class="recent-reports" aria-label="Recent Reports">
+                <h2>Recent Reports</h2>
+                <ul id="recent-reports-list"></ul>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NeuroScan AI. All rights reserved.</p>
+    </footer>
+
+    <script src="js/doctor-dashboard.js"></script>
+</body>
+</html>
