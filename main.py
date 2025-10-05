@@ -1,106 +1,50 @@
 import numpy as np
 import tensorflow as tf
 import datetime
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.models import Sequential, load_model
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from tensorflow.keras.models import load_model
+# import all modules from the original code that are still needed
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
 
-# Set the correct paths for the training and testing folders
-TRAIN_PATH = r'C:\Users\Sadem Alsaleh\Desktop\Graduation Project\brain tumor model\archive\Training'
-TEST_PATH = r'C:\Users\Sadem Alsaleh\Desktop\Graduation Project\brain tumor model\archive\Testing'
+# Import the necessary function from the preprocessing module
+from preprocessing import resize_and_normalize 
 
-# Prepare data using ImageDataGenerator for training
-train_datagen = ImageDataGenerator(
-    rescale=1./255,
-    rotation_range=20,
-    width_shift_range=0.2,
-    height_shift_range=0.2,
-    shear_range=0.2,
-    zoom_range=0.2,
-    horizontal_flip=True,
-    fill_mode='nearest'
-)
-
-# Prepare data for the test set (no data augmentation)
-test_datagen = ImageDataGenerator(rescale=1./255)
-
-# Load training data from directories
-train_generator = train_datagen.flow_from_directory(
-    TRAIN_PATH,
-    target_size=(150, 150),
-    batch_size=32,
-    class_mode='categorical'
-)
-
-# Load test data from directories
-test_generator = test_datagen.flow_from_directory(
-    TEST_PATH,
-    target_size=(150, 150),
-    batch_size=32,
-    class_mode='categorical'
-)
-
-# Build the model architecture (with added layers)
-model = Sequential([
-    Conv2D(32, (3, 3), activation='relu', input_shape=(150, 150, 3)),
-    MaxPooling2D((2, 2)),
-    
-    Conv2D(64, (3, 3), activation='relu'),
-    MaxPooling2D((2, 2)),
-    
-    Conv2D(128, (3, 3), activation='relu'),
-    MaxPooling2D((2, 2)),
-    
-    Conv2D(256, (3, 3), activation='relu'),
-    MaxPooling2D((2, 2)),
-    
-    Flatten(),
-    Dense(512, activation='relu'),
-    Dropout(0.5),
-    Dense(256, activation='relu'),
-    Dropout(0.5),
-    Dense(4, activation='softmax')  # 4 classes
-])
-
-# Compile the model
-model.compile(
-    optimizer='adam',
-    loss='categorical_crossentropy',
-    metrics=['accuracy']
-)
-
-print("Starting the training process. This may take some time...")
-
-# Train the model
-history = model.fit(
-    train_generator,
-    steps_per_epoch=train_generator.samples // train_generator.batch_size,
-    epochs=40,
-    validation_data=test_generator,
-    validation_steps=test_generator.samples // test_generator.batch_size
-)
-
-print("Model training is complete!")
-
-# --- Prediction and Report Generation ---
-
-# Save the model after training
-model.save('brain_tumor_model.h5')
-
-# Define class names as learned by the model
+# Define class names as learned by the model (needed before prediction)
 class_names = ['glioma', 'meningioma', 'notumor', 'pituitary']
+
+# --- تحميل النموذج الجاهز بدلاً من بنائه وتدريبه ---
+
+try:
+    # >>> التعديل الرئيسي: تحميل النموذج المحفوظ (brain_tumor_model.h5) <<<
+    model = load_model('brain_tumor_model.h5')
+    print("Trained model loaded successfully for fast prediction.")
+except Exception as e:
+    print(f"Error loading model: {e}")
+    print("Ensure 'brain_tumor_model.h5' exists in the project folder and TensorFlow is correctly installed.")
+    # يمكن هنا إيقاف البرنامج إذا كان التحميل ضرورياً
+    exit()
+
+# تم إزالة الأكواد التالية لعدم الحاجة إليها بعد الآن:
+# - Set the correct paths for the training and testing folders
+# - Prepare data using ImageDataGenerator
+# - Load training data from directories (train_generator)
+# - Load test data from directories (test_generator)
+# - Build the model architecture (model = Sequential([...]))
+# - Compile the model
+# - model.fit(...)
+# - model.save(...)
+
+# --- Prediction and Report Generation Functions ---
 
 def predict_tumor(img_path):
     """
-    Predicts the class of a single image.
+    Predicts the class of a single image using the dedicated preprocessing module.
     """
-    # Load and resize the image
-    img = image.load_img(img_path, target_size=(150, 150))
-    img_array = image.img_to_array(img)
-    img_array = np.expand_dims(img_array, axis=0)
-    img_array = img_array / 255.0
+    # 1. استخدام دالة المعالجة للحصول على مصفوفة مطبّعة (150, 150, 3)
+    normalized_array = resize_and_normalize(img_path) 
+    
+    # 2. إضافة بُعد الدفعة (Batch Dimension) لأن الموديل يتوقعها
+    img_array = np.expand_dims(normalized_array, axis=0)
     
     # Perform prediction
     predictions = model.predict(img_array)
@@ -133,7 +77,9 @@ def generate_report(predicted_class, confidence, predictions):
     report += "\n--- End of Report ---\n"
     return report
 
-# Path to an image from the test folder
+# --- Execution ---
+
+# Path to an image from the test folder (يجب أن يبقى هذا المسار كما هو)
 image_path = r'C:\Users\Sadem Alsaleh\Desktop\Graduation Project\brain tumor model\archive\Testing\meningioma\Te-me_0016.jpg' 
 
 # Perform prediction
