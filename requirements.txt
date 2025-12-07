@@ -1,18 +1,22 @@
- # PyTorch الأساسي
-torch>=2.0.0
-torchvision>=0.15.0
+# PyTorch core
+torch==2.6.0
+torchvision==0.15.1
 
-# مكتبة الـ UNet
-segmentation-models-pytorch>=0.3.0
+# UNet and segmentation models
+segmentation-models-pytorch==0.3.0
 
-# معالجة البيانات وتقسيمها
-scikit-learn>=1.2.0
+# Image handling
+Pillow==9.5.0
+
+# Data processing
+scikit-learn==1.2.2
+
+# Progress bar
+tqdm==4.65.0
+
 pandas>=2.0.0
-tqdm>=4.65.0
-
-# Keras/TensorFlow لحفظ المودل بصيغة H5
-tensorflow>=2.14.0
 
 # مكتبات إضافية للتعامل مع الملفات والصور
 numpy>=1.25.0
+
 glob2>=0.7
